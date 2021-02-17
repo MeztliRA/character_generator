@@ -1,0 +1,10 @@
+[package]
+name = "character_generator"
+version = "1.0.0"
+authors = ["MeztliRA <MeztliRA@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+"rand" = "0.5.5" 
