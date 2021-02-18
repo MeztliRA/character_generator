@@ -1,6 +1,6 @@
 [package]
 name = "character_generator"
-version = "1.0.0"
+version = "1.0.1"
 license = "GPL v3.0"
 homepage = "https://github.com/MeztliRA/character_generator"
 readme = "https://github.com/MeztliRA/character_generator/blob/main/README.md"
