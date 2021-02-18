@@ -1,6 +1,10 @@
 [package]
 name = "character_generator"
 version = "1.0.0"
+license = "GPL v3.0"
+homepage = "https://github.com/MeztliRA/character_generator"
+readme = "https://github.com/MeztliRA/character_generator/blob/main/README.md"
+description = "A character generator written in rust."
 authors = ["MeztliRA <MeztliRA@gmail.com>"]
 edition = "2018"
 
