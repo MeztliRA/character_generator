@@ -1,6 +1,6 @@
 [package]
 name = "character_generator"
-version = "1.0.0"
+version = "1.0.1"
 license = "GPL v3.0"
 homepage = "https://github.com/MeztliRA/character_generator"
 readme = "https://github.com/MeztliRA/character_generator/blob/main/README.md"
@@ -11,4 +11,5 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rand = "0.5.5" 
+rand = "0.5.5"
+anyhow = "1.0"
