@@ -1,7 +1,8 @@
 use std::io;
 use rand::Rng;
+use anyhow::{Context, Result};
 
-fn main() {
+fn main() -> Result<()> {
     let title_picker = rand::thread_rng().gen_range(1, 5);
     
     let title = 
@@ -20,43 +21,39 @@ fn main() {
     let mut name = String::new();
     println!("Enter a name: ");
 
-    io::stdin()
-        .read_line(&mut name)
-        .expect("Failed to read line");
+    io::stdin().read_line(&mut name)
+        .with_context(|| format!("Failed to read line."))?;
 
     let name = remove_newline(&mut name);
         
     let mut town = String::new();
     println!("\nEnter a town: ");
 
-    io::stdin()
-        .read_line(&mut town)
-        .expect("Failed to read line");
+    io::stdin().read_line(&mut town)
+        .with_context(|| format!("Failed to read line."))?;
 
     let town = remove_newline(&mut town);
 
     let mut age = String::new();
     println!("\nEnter a number: ");
 
-    io::stdin()
-        .read_line(&mut age)
-        .expect("Failed to read line");
+    io::stdin().read_line(&mut age)
+        .with_context(|| format!("Failed to read line."))?;
     
-    let age: i32 = match age.trim().parse() {
-        Ok(num) => num,
-        Err(_) => panic!(),
-    };
+    let age: i32 = age.trim().parse()
+        .with_context(|| format!("Failed to convert to integer"))?;
     
     let mut pet = String::new();
     println!("\nEnter a animal: ");
     
-    io::stdin()
-        .read_line(&mut pet)
-        .expect("Failed to read line");
-
+    io::stdin().read_line(&mut pet)
+        .with_context(|| format!("Failed to read line."))?;
+    
     let pet = remove_newline(&mut pet);    
 
     generate_character(&name, &town, &age, &pet, &title);
+
+    Ok(())
 }
 
 fn generate_character(iname: &String, itown: &String, iage: &i32, ipet: &String, ititle: &String) {
