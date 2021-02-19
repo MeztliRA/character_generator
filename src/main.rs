@@ -49,19 +49,27 @@ fn main() -> Result<()> {
     io::stdin().read_line(&mut pet)
         .with_context(|| format!("Failed to read line."))?;
     
-    let pet = remove_newline(&mut pet);    
+    let pet = remove_newline(&mut pet);
 
-    generate_character(&name, &town, &age, &pet, &title);
+    let mut pet_name = String::new();
+    println!("\nEnter a name: ");
+
+    io::stdin().read_line(&mut pet_name)
+        .with_context(|| format!("Failed to read line."))?;
+
+    let pet_name = remove_newline(&mut pet_name);
+
+    generate_character(&name, &town, &age, &pet, &title, &pet_name);
 
     Ok(())
 }
 
-fn generate_character(iname: &String, itown: &String, iage: &i32, ipet: &String, ititle: &String) {
+fn generate_character(iname: &String, itown: &String, iage: &i32, ipet: &String, ititle: &String, ipet_name: &String) {
     println!("\n    _    ");
     println!("   |_|     name: {} the {}", iname, ititle);
     println!("    |      town of origin: {}", itown);
     println!("   /|\\     age: {} years old", iage);
-    println!("    |      pet: {}", ipet);
+    println!("    |      pet: {} the {}", ipet_name, ipet);
     println!("   / \\    ");
 }
 
