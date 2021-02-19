@@ -3,7 +3,7 @@ use rand::Rng;
 use anyhow::{Context, Result};
 
 fn main() -> Result<()> {
-    let title_picker = rand::thread_rng().gen_range(1, 5);
+    let title_picker = rand::thread_rng().gen_range(1, 6);
     
     let title = 
         if title_picker == 1 {
@@ -12,8 +12,10 @@ fn main() -> Result<()> {
             String::from("coward")
         } else if title_picker == 3 {
             String::from("humble")
-        } else {
+        } else if title_picker == 4 {
             String::from("wise")
+        } else {
+            String::from("giant")
         };
     
     println!("CharacterGenerator\n");
