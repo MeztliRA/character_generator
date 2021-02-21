@@ -26,7 +26,7 @@ fn main() -> Result<()> {
     io::stdin().read_line(&mut name)
         .with_context(|| format!("Failed to read line."))?;
 
-    let name = remove_newline(&mut name);
+    let name = String::from(name.trim());
         
     let mut town = String::new();
     println!("\nEnter a town: ");
@@ -34,7 +34,7 @@ fn main() -> Result<()> {
     io::stdin().read_line(&mut town)
         .with_context(|| format!("Failed to read line."))?;
 
-    let town = remove_newline(&mut town);
+    let town = String::from(town.trim());
 
     let mut age = String::new();
     println!("\nEnter a number: ");
@@ -51,7 +51,7 @@ fn main() -> Result<()> {
     io::stdin().read_line(&mut pet)
         .with_context(|| format!("Failed to read line."))?;
     
-    let pet = remove_newline(&mut pet);
+    let pet = String::from(pet.trim());
 
     let mut pet_name = String::new();
     println!("\nEnter a name: ");
@@ -59,7 +59,7 @@ fn main() -> Result<()> {
     io::stdin().read_line(&mut pet_name)
         .with_context(|| format!("Failed to read line."))?;
 
-    let pet_name = remove_newline(&mut pet_name);
+    let pet_name = String::from(pet_name.trim());
 
     generate_character(&name, &town, &age, &pet, &title, &pet_name);
 
@@ -73,9 +73,4 @@ fn generate_character(iname: &String, itown: &String, iage: &i32, ipet: &String,
     println!("   /|\\     age: {} years old", iage);
     println!("    |      pet: {} the {}", ipet_name, ipet);
     println!("   / \\    ");
-}
-
-fn remove_newline(s: &mut String) -> String {
-    let s = s.replace("\n", "");
-    return s;
 }
