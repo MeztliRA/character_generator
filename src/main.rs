@@ -2,6 +2,8 @@ use std::io;
 use rand::Rng;
 use anyhow::{Context, Result};
 
+mod generate;
+
 fn main() -> Result<()> {
     let title_picker = rand::thread_rng().gen_range(1, 6);
     
@@ -61,16 +63,7 @@ fn main() -> Result<()> {
 
     let pet_name = String::from(pet_name.trim());
 
-    generate_character(&name, &town, &age, &pet, &title, &pet_name);
+    generate::generate_character(&name, &town, &age, &pet, &title, &pet_name);
 
     Ok(())
-}
-
-fn generate_character(iname: &String, itown: &String, iage: &i32, ipet: &String, ititle: &String, ipet_name: &String) {
-    println!("\n    _    ");
-    println!("   |_|     name: {} the {}", iname, ititle);
-    println!("    |      town of origin: {}", itown);
-    println!("   /|\\     age: {} years old", iage);
-    println!("    |      pet: {} the {}", ipet_name, ipet);
-    println!("   / \\    ");
 }
